@@ -831,53 +831,57 @@ body.lang-ur .answer-btn .text {
 
 .reviews-list { color:#fff; }
 .review-card .stars { color:#FFD700; }
-/* ========= MOBILE FIXES (do not affect desktop) ========= */
+/* ==== FINAL MOBILE FIX (clean, matches desktop but fits screen) ==== */
 @media (max-width: 640px){
 
-  /* Put header safely at top, tighten padding */
+  /* Header: no fixed position on mobile */
   .app-header{
-    position: fixed;
-    top: 8px; left: 8px; right: 8px;
-    padding: 8px 10px;
-    z-index: 1000;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 8px 8px 0 8px;
+    width: auto;
+    z-index: auto;
   }
 
-  /* Move quote BELOW the header and stop centering overlay */
+  /* Hide the quote on phones to free up space */
   .quote-box{
-    position: relative;
-    top: auto; left: auto;
-    transform: none;
-    margin: 64px auto 12px;     /* space under fixed header */
-    width: calc(100% - 24px);
-    max-width: 520px;
-    z-index: 900;
+    display: none !important;
   }
 
-  /* Push page sections down so nothing hides under fixed header/quote */
-  .home,
-  .about{
-    margin-top: 8px !important;
-  }
-
-  /* Keep language switch tidy in top-right */
+  /* Language switch top-right, floating */
   #langSwitcher{
-    top: 8px;
-    right: 8px;
+    position: fixed !important;
+    top: 10px;
+    right: 10px;
+    z-index: 1200;
+  }
+
+  /* Timer below the language buttons */
+  .timer-container{
+    top: 54px !important;
+    right: 10px !important;
     z-index: 1100;
   }
 
-  /* Timer sits below header/quote, not under them */
-  .timer-container{
-    top: 92px;         /* below header strip */
-    right: 10px;
+  /* Normal top margin for pages */
+  .home,
+  .about{
+    margin-top: 10px !important;
   }
 
-  /* Footer should not cover content on mobile */
+  /* Footer scrolls with page, not fixed */
   .copyright{
-    position: static;          /* was fixed */
-    transform: none;
+    position: static !important;
+    transform: none !important;
     margin: 16px auto 24px;
     text-align: center;
   }
+}
+
+/* Hide header automatically during quizzes (clean mobile view) */
+@media (max-width: 640px){
+  body.in-quiz .app-header{ display: none !important; }
 }
 
