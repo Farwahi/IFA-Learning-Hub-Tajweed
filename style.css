@@ -909,4 +909,59 @@ body { padding-bottom: env(safe-area-inset-bottom, 0); }
   .answer-btn { min-height: 92px; }
   .text{ word-break: break-word; overflow-wrap: anywhere; }
 }
+/* ============ MOBILE-ONLY RESPONSIVE ADJUSTMENTS ============ */
+@media (max-width: 768px){
+
+  /* keep same visual but scale proportionally */
+  .app-header {
+    padding: clamp(6px, 2vw, 10px);
+    border-radius: 10px;
+  }
+
+  .brand-name{
+    font-size: clamp(14px, 3.2vw, 18px);
+  }
+
+  .tagline{
+    font-size: clamp(10px, 2.5vw, 13px);
+  }
+
+  /* make timer box float neatly without overlapping question */
+  .timer-container {
+    top: calc(var(--fixed-top, 100px) - 10px);
+    right: 10px;
+    padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 14px);
+    border-radius: 10px;
+    z-index: 1300;
+  }
+
+  /* make sure the back button inside timer stays tappable */
+  .timer-container .back-btn {
+    font-size: clamp(0.8rem, 2.2vw, 1rem);
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  /* ensure question area always visible below header+timer */
+  .question-area {
+    margin-top: calc(var(--fixed-top, 120px) + 10px);
+    position: relative;
+    z-index: 100;
+  }
+
+  /* hide quote during quiz for more space */
+  body.quiz-mode .quote-box { display: none; }
+
+  /* scale questions naturally on small screens */
+  #question {
+    font-size: clamp(1rem, 2.5vw + 0.5rem, 1.7rem);
+    line-height: 1.4;
+  }
+
+  /* keep answer buttons proportional */
+  .answer-btn {
+    padding: clamp(14px, 3vw, 20px);
+    border-radius: 12px;
+  }
+}
 
