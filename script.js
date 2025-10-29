@@ -4218,6 +4218,15 @@ const timerEl = document.getElementById('timer');
 const homeEl = document.getElementById('home');
 const chaptersGridEl = document.getElementById('chaptersGrid');
 const mockBtn = document.getElementById('mockBtn');
+/* --- Dynamic top spacing: measure fixed bars and add safe margin --- */
+function adjustTopSpacing(){
+  const header = document.querySelector('.app-header');
+  const quote  = document.querySelector('.quote-box');
+  const h = (header?.offsetHeight || 0) + (quote?.offsetHeight || 0) + 18;
+  document.documentElement.style.setProperty('--fixed-top', `${Math.max(100, h)}px`);
+}
+window.addEventListener('load', adjustTopSpacing);
+window.addEventListener('resize', adjustTopSpacing);
 
 /* header controls can be destroyed/recreated */
 let qCounterEl = null;

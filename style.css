@@ -886,4 +886,27 @@ html, body {
 
 /* Avoid footer clashing with Safari bottom bar */
 body { padding-bottom: env(safe-area-inset-bottom, 0); }
+/* --- (your previous responsive fixes go here) --- */
+
+/* --- Add these new rules at the end --- */
+:root{ --fixed-top: 140px; }
+
+.app-header      { z-index: 1000; }
+#langSwitcher    { z-index: 1100; }
+.timer-container { z-index: 1200; }
+.quote-box       { pointer-events: none; z-index: 900; }
+
+.home,
+.quiz-container {
+  margin-top: var(--fixed-top);
+}
+
+@media (max-width: 640px){
+  #question{
+    font-size: clamp(1.1rem, 4.4vw, 1.8rem);
+    line-height: 1.35;
+  }
+  .answer-btn { min-height: 92px; }
+  .text{ word-break: break-word; overflow-wrap: anywhere; }
+}
 
