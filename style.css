@@ -831,4 +831,59 @@ body.lang-ur .answer-btn .text {
 
 .reviews-list { color:#fff; }
 .review-card .stars { color:#FFD700; }
+/* --- Mobile tidy-ups & safe areas --- */
+html, body {
+  min-height: 100svh; /* fix iOS 100vh issue */
+}
+
+/* Put header and timer on separate “layers” so they never block each other */
+.app-header { z-index: 1000; }
+.timer-container { z-index: 1100; }   /* higher than header */
+#langSwitcher { z-index: 1200; }      /* highest of the fixed UI items */
+
+/* Make header a single row on mobiles and tuck nav to the right */
+.app-header {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-right: clamp(8px, 2vw, 16px);
+}
+.top-nav {
+  display: flex;
+  gap: 8px;
+}
+.top-nav a {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(12px, 2.5vw, 14px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Prevent header/nav from covering the quote on small screens */
+@media (max-width: 640px) {
+  .quote-box { top: 68px; }          /* drop it a little lower */
+  .timer-container { top: 118px; }   /* and the timer a bit lower */
+  #langSwitcher { top: 16px; right: 12px; }
+}
+
+/* Improve answer buttons readability & touch area on phones */
+@media (max-width: 480px) {
+  .answer-btn { padding: 16px; min-height: 96px; }
+  .shape { font-size: 2.2rem; margin-right: 12px; }
+  .text { font-size: 1.2rem; line-height: 1.35; }
+}
+
+/* Make long English/Russian strings wrap nicely */
+.text, #question {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Avoid footer clashing with Safari bottom bar */
+body { padding-bottom: env(safe-area-inset-bottom, 0); }
 
