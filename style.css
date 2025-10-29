@@ -831,4 +831,61 @@ body.lang-ur .answer-btn .text {
 
 .reviews-list { color:#fff; }
 .review-card .stars { color:#FFD700; }
+/* ============== DESKTOP LOCK (match local preview) ============== */
+/* tune this until the deployed page equals your local preview */
+:root{
+  --page-width: 1120px;    /* <- change to 1080 / 1140 if you need tiny nudges */
+  --gutter: 16px;
+}
+
+/* center the main strips on wide screens and keep the same width */
+@media (min-width: 1200px){
+  /* top header and quote should align to the same center line */
+  .app-header,
+  .quote-box,
+  .home,
+  .chapters-grid {
+    max-width: var(--page-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* chapters grid holds the cards at the same width as preview */
+  .chapters-grid{
+    width: var(--page-width);
+    grid-template-columns: repeat(4, 1fr); /* 4 across like your desktop */
+    gap: 14px;
+  }
+
+  /* position the timer box relative to the centered content,
+     not the viewport edge, so it matches your preview */
+  .timer-container{
+    right: calc((100vw - var(--page-width))/2 + var(--gutter));
+  }
+
+  /* keep hadith box width similar to preview */
+  .quote-box{
+    max-width: calc(var(--page-width) - 80px);
+  }
+}
+
+/* ============== MOBILE “QUIZ-FOCUSED” VIEW ONLY ============== */
+@media (max-width: 640px){
+  /* when in quiz, hide chrome to remove overlap/cover */
+  body.in-quiz .app-header,
+  body.in-quiz .quote-box{ display:none !important; }
+
+  /* keep timer compact and out of the way */
+  .timer-container{
+    top: 10px;
+    right: 10px;
+    padding: 10px 14px;
+  }
+
+  /* tighten question box so full text shows without being covered */
+  .question-area{
+    margin-top: 10px;
+    padding: 12px 16px;
+  }
+}
 
