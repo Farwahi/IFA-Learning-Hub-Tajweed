@@ -4370,20 +4370,16 @@ function buildChaptersGrid(){
 
 function showHome(){
   clearInterval(timer);
+  document.body.classList.remove('in-quiz');   // <— hide quiz-only view
   if (!homeEl) return;
   homeEl.classList.remove('hidden');
   quizContainer.style.display = 'none';
-
-  const rtlUI = currentLang === 'ur';
-  document.body.dir = rtlUI ? 'rtl' : 'ltr';
-  document.body.classList.remove('rtl');
-  if (rtlUI) document.body.classList.add('rtl');
-
   if (backBtnEl) backBtnEl.style.display = 'none';
   if (qCounterEl) qCounterEl.style.display = 'none';
 }
 
 function showQuiz(){
+  document.body.classList.add('in-quiz');      // <— hide header/quote on mobile
   if (homeEl) homeEl.classList.add('hidden');
   quizContainer.style.display = 'flex';
   if (qCounterEl) qCounterEl.style.display = 'block';
