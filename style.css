@@ -17,7 +17,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     /* Updated background to use an image */
-    background-image: url('photo\ background.jpg');
+    background-image: url('photo\\ background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +29,6 @@ body {
     min-height: 100vh;
     color: white;
 }
-
 
 .quiz-container {
     display: flex;
@@ -81,7 +80,6 @@ body {
   width: auto;
 }
 
-
 /* ===== Responsive question text sizing ===== */
 #question {
   display: inline-block;
@@ -91,14 +89,12 @@ body {
   margin: 0;
   color: #fff;
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
-  /* responsive scaling */
   font-size: clamp(1.2rem, 2.5vw + 0.5rem, 2.4rem);
   line-height: 1.4;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
 }
-
 
 .answers-grid {
     display: grid;
@@ -133,7 +129,7 @@ body {
 }
 
 .shape {
-    font-size: 3rem; /* increased from 2.5rem */
+    font-size: 3rem;
     margin-right: 18px;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
@@ -141,7 +137,7 @@ body {
 .text {
     text-align: left;
     flex-grow: 1;
-    font-size: 1.8rem; /* increased from 1.2rem */
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
@@ -170,13 +166,10 @@ body {
 }
 
 @keyframes pulse {
-    from {
-        transform: scale(1.05);
-    }
-    to {
-        transform: scale(1.07);
-    }
+    from { transform: scale(1.05); }
+    to { transform: scale(1.07); }
 }
+
 /* ===== Brand (top-left, shiny gold, responsive) ===== */
 .app-header{
   position: fixed;
@@ -201,7 +194,6 @@ body {
   gap: clamp(6px, 1vw, 8px);
 }
 
-/* --- adds faint watermark behind text --- */
 .brand::before {
   content: "IFA Learning Hub Tajweed";
   position: absolute;
@@ -210,7 +202,7 @@ body {
   transform: translateY(-50%) scale(1.3);
   font-weight: 800;
   font-size: clamp(16px, 3vw, 22px);
-  color: rgba(212,175,55,0.15); /* very light gold watermark */
+  color: rgba(212,175,55,0.15);
   filter: blur(2px);
   pointer-events: none;
   user-select: none;
@@ -230,31 +222,22 @@ body {
   font-weight: 700;
   font-size: clamp(14px, 2.6vw, 18px);
   letter-spacing: .3px;
-
-  /* shiny gold gradient */
   background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
-
-  /* text clipping — include BOTH standard + webkit for compatibility */
-  background-clip: text;           /* 👈 standard */
-  -webkit-background-clip: text;   /* 👈 webkit browsers */
-
-  /* make the text transparent so the gradient shows through */
-  color: transparent;              /* 👈 standard */
-  -webkit-text-fill-color: transparent; /* 👈 webkit */
-
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   text-shadow: 0 0 5px rgba(255,215,0,.4), 0 0 10px rgba(255,215,0,.3);
   animation: shineMove 4s infinite linear;
 }
 
-/* Fallback for browsers that don't support text-clip */
 @supports not ((background-clip: text) or (-webkit-background-clip: text)) {
   .brand-name{
     background: none;
-    color: #d4af37;  /* solid gold */
+    color: #d4af37;
   }
 }
 
-/* smooth moving light reflection */
 @keyframes shineMove {
   0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.2), 0 0 10px rgba(255, 215, 0, 0.2); }
   50% { text-shadow: 0 0 12px rgba(255, 255, 180, 0.6), 0 0 25px rgba(255, 255, 160, 0.4); }
@@ -287,17 +270,16 @@ body {
   font-size: clamp(10px, 2vw, 14px);
 }
 
-/* Responsive adjustments */
 @media (max-width: 420px){
   .brand-name{ font-size: 15px; }
   .tagline{ font-size: 10px; padding-left: 24px; white-space: normal; line-height: 1.2; }
   .watermark{ display:none; }
 }
-/* ===== Beautiful Hadith Quote at top center ===== */
+
 /* ===== Hadith Quote aligned with brand header ===== */
 .quote-box {
   position: absolute;
-  top: 22px;                   /* same height as brand */
+  top: 22px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -311,7 +293,6 @@ body {
   max-width: 90%;
 }
 
-/* Arabic text — glowing golden */
 .quote-arabic {
   font-family: "Scheherazade New", "Amiri", serif;
   font-size: clamp(1.3rem, 2.4vw, 2.6rem);
@@ -323,7 +304,6 @@ body {
   direction: rtl;
 }
 
-/* English translation — white with soft glow */
 .quote-english {
   font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   color: #fff;
@@ -333,15 +313,6 @@ body {
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
-/* Responsive adjustment */
-@media (max-width: 600px) {
-  .quote-box {
-    top: 60px;                /* lowers slightly on mobile */
-    padding: 8px 15px 10px;
-  }
-  .quote-arabic { font-size: 1.3rem; }
-  .quote-english { font-size: 0.9rem; }
-}
 /* ===== Result box styling ===== */
 .result-box {
   background: rgba(0, 0, 0, 0.6);
@@ -384,22 +355,21 @@ body {
   background-color: #0E4A91;
   transform: scale(1.05);
 }
+
 /* --- Clean centered white footer --- */
 .copyright {
   position: fixed;
-  bottom: 10px;                /* distance from bottom edge */
-  left: 50%;                   /* horizontal centering */
-  transform: translateX(-50%); /* perfect center alignment */
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   font-weight: 500;
   font-size: 0.95rem;
-  color: #ffffff;              /* pure white text */
+  color: #ffffff;
   text-align: center;
   z-index: 1000;
-  text-shadow: none;
   background: transparent;
 }
 
-/* completely disable any pseudo element duplication */
 .copyright::before {
   content: none !important;
   display: none !important;
@@ -410,19 +380,18 @@ body {
 
 .home {
   width: min(100%, 900px);
-  margin: 80px auto 30px;             /* leaves room for your header/quote */
+  margin: 80px auto 30px;
   padding: 10px 16px;
   text-align: center;
 }
 
 .home-title {
-  font-size: clamp(1rem, 2.4vw, 1.6rem);  /* smaller than before */
+  font-size: clamp(1rem, 2.4vw, 1.6rem);
   font-weight: 600;
   margin-bottom: 14px;
   color: #ffffff;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
-
 
 .chapters-grid{
   display: grid;
@@ -440,7 +409,6 @@ body {
   transition: transform .15s ease, box-shadow .15s ease, background .15s;
   backdrop-filter: blur(6px);
   .chapter-title{ unicode-bidi: plaintext; }
-
 }
 
 .chapter-card:hover{
@@ -452,7 +420,7 @@ body {
 .chapter-title{
   font-weight: 700;
   margin: 0 0 4px;
-  color: #D89F0A; /* your gold accent */
+  color: #D89F0A;
   font-size: 1rem;
 }
 .chapter-meta{
@@ -486,10 +454,11 @@ body {
 @media (max-width: 640px){
   .chapters-grid{ grid-template-columns: repeat(2, 1fr); }
 }
+
 /* put back button and counter neatly inside the timer box */
 .timer-container {
   display: flex;
-  flex-direction: column;   /* button on top, then big timer, then counter */
+  flex-direction: column;
   align-items: center;
   gap: 6px;
 }
@@ -513,15 +482,16 @@ body {
   color: #fff;
   opacity: 0.9;
 }
+
+/* old extra switcher (not used, but keep in case) */
 .lang-switch{
-  position: fixed;      /* stick to viewport, not inside header */
-  top: 96px;            /* set below your header; adjust 84–110px to taste */
+  position: fixed;
+  top: 96px;
   right: 24px;
   z-index: 2000;
   display: flex;
   gap: 8px;
 }
-
 .lang-switch button{
   background:#fff;
   color:#000;
@@ -536,6 +506,7 @@ body {
 @media (max-width:640px){
   .lang-switch{ top: 88px; right: 12px; }
 }
+
 /* Language switcher pinned top-right */
 #langSwitcher{
   position: fixed;
@@ -547,24 +518,21 @@ body {
 /* Move the timer/counter box below the switcher so they don't collide */
 .timer-container{
   position: fixed;
-  top: 72px;          /* was near top; now pushed down */
+  top: 72px;
   right: 16px;
   z-index: 900;
 }
 
 @media (max-width: 768px){
-  .timer-container{ top: 92px; } /* a bit more space on small screens */
+  .timer-container{ top: 92px; }
 }
+
 /* ================================
    Language-specific typography
-   (EN/RU slightly smaller; UR keeps current)
-   ================================ */
-
-/* Optional: better cross-language fonts */
+================================ */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@600;700&display=swap');
 
-/* Base fallbacks by language */
 body.lang-ur {
   font-family: "Noto Nastaliq Urdu", "Scheherazade New", serif;
 }
@@ -573,50 +541,42 @@ body.lang-ru {
   font-family: "Noto Sans", "Poppins", "Segoe UI", Arial, sans-serif;
 }
 
-/* Question text: EN/RU a bit smaller/tighter */
 body.lang-en #question,
 body.lang-ru #question {
   font-size: clamp(1.05rem, 2vw + 0.35rem, 2.0rem);
   line-height: 1.28;
 }
 
-/* Answer text: EN/RU smaller than Urdu */
 body.lang-en .answer-btn .text,
 body.lang-ru .answer-btn .text {
   font-size: clamp(1rem, 1.1vw + 0.55rem, 1.35rem);
   line-height: 1.25;
 }
 
-/* Icon shapes also a touch smaller for EN/RU */
 body.lang-en .answer-btn .shape,
 body.lang-ru .answer-btn .shape {
   font-size: 2.2rem;
   margin-right: 14px;
 }
 
-/* Slightly tighter padding for EN/RU answer buttons */
 body.lang-en .answer-btn,
 body.lang-ru .answer-btn {
   padding: 16px 18px;
 }
 
-/* Chapter cards: reduce title size a bit for long words (EN/RU) */
 body.lang-en .chapter-title,
 body.lang-ru .chapter-title {
   font-size: 0.92rem;
 }
 
-/* Counter text fits nicer with EN/RU */
 body.lang-en .q-counter,
 body.lang-ru .q-counter {
   font-size: 0.9rem;
 }
 
-/* Keep Urdu as-is, but ensure good line-height */
 body.lang-ur .answer-btn .text {
   line-height: 1.4;
 }
-
 
 /* ====== About Page & Nav ====== */
 .top-nav {
@@ -741,9 +701,10 @@ body.lang-ur .answer-btn .text {
   color: #fff;
 }
 .review-form textarea { resize: vertical; }
+
 /* ===== Reviews Section Styling ===== */
 .reviews {
-  background: rgba(0, 0, 0, 0.55);     /* subtle dark layer */
+  background: rgba(0, 0, 0, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 25px 20px;
@@ -778,7 +739,7 @@ body.lang-ur .answer-btn .text {
 }
 
 .review-card .stars {
-  color: #FFD700; /* bright golden stars */
+  color: #FFD700;
   letter-spacing: 1px;
   font-size: 1rem;
 }
@@ -801,7 +762,7 @@ body.lang-ur .answer-btn .text {
 .review-form select,
 .review-form textarea {
   background: rgba(255,255,255,0.95);
-  color: #000;              /* ✅ make typed text visible (black) */
+  color: #000;
   resize: vertical;
   border: none;
   border-radius: 6px;
@@ -809,7 +770,6 @@ body.lang-ur .answer-btn .text {
   font-size: 0.95rem;
   line-height: 1.4;
 }
-
 
 .review-form input,
 .review-form select {
@@ -831,6 +791,7 @@ body.lang-ur .answer-btn .text {
 
 .reviews-list { color:#fff; }
 .review-card .stars { color:#FFD700; }
+
 /* ==== FINAL MOBILE FIX (clean, matches desktop but fits screen) ==== */
 @media (max-width: 640px){
 
@@ -884,4 +845,3 @@ body.lang-ur .answer-btn .text {
 @media (max-width: 640px){
   body.in-quiz .app-header{ display: none !important; }
 }
-

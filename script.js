@@ -4370,7 +4370,7 @@ function buildChaptersGrid(){
 
 function showHome(){
   clearInterval(timer);
-  document.body.classList.remove('in-quiz');  // ✅ show header again on phones
+  document.body.classList.remove('in-quiz');  // 👈 show header again on phones
   if (!homeEl) return;
   homeEl.classList.remove('hidden');
   quizContainer.style.display = 'none';
@@ -4379,7 +4379,7 @@ function showHome(){
 }
 
 function showQuiz(){
-  document.body.classList.add('in-quiz');     // ✅ hide header on phones
+  document.body.classList.add('in-quiz');     // 👈 hide header on phones
   if (homeEl) homeEl.classList.add('hidden');
   quizContainer.style.display = 'flex';
   if (qCounterEl) qCounterEl.style.display = 'block';
