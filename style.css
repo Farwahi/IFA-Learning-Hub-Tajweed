@@ -957,3 +957,109 @@ body.lang-ur .answer-btn .text {
     margin-top: 60px;
   }
 }
+/* =========================================================
+   MOBILE FIX – iPhone Safari + Chrome
+   ========================================================= */
+@media (max-width: 720px) {
+
+  /* 1) On phones, header should NOT float */
+  .app-header {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: auto;
+    margin: 10px 10px 0 10px;
+    z-index: 5;
+  }
+
+  /* 2) On phones, footer/copyright should scroll, not stick */
+  .copyright {
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 14px auto 22px;
+    text-align: center;
+  }
+
+  /* 3) Language buttons can stay fixed top-right */
+  #langSwitcher {
+    position: fixed !important;
+    top: 10px;
+    right: 10px;
+    z-index: 2000;
+  }
+
+  /* 4) Timer: make small and out of the way */
+  .timer-container {
+    position: fixed !important;
+    top: 60px !important;        /* just under language buttons */
+    right: 10px !important;
+    width: 150px;
+    padding: 8px 10px;
+    gap: 4px;
+    z-index: 1500;
+  }
+  .timer-container #timer {
+    font-size: 1.6rem;
+  }
+  .back-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 4px 6px;
+  }
+  .q-counter {
+    font-size: 0.7rem;
+  }
+
+  /* 5) Quiz question should start a bit lower */
+  .question-area {
+    margin-top: 78px;
+  }
+
+  /* 6) WHEN WE ARE IN QUIZ → hide header + copyright
+        (this is what was still showing in your screenshot) */
+  body.in-quiz .app-header,
+  body.in-quiz .copyright {
+    display: none !important;
+  }
+
+  /* 7) Chapters page spacing on mobile */
+  .home {
+    margin-top: 8px !important;
+  }
+
+  /* 8) About page spacing on mobile */
+  .about {
+    margin-top: 8px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE LANDSCAPE – make timer even thinner
+   ========================================================= */
+@media (max-width: 900px) and (orientation: landscape) {
+
+  .timer-container {
+    top: 10px !important;
+    right: 10px !important;
+    width: 130px;
+    padding: 6px 8px;
+  }
+
+  .timer-container #timer {
+    font-size: 1.4rem;
+  }
+
+  .question-area {
+    margin-top: 60px;
+  }
+
+  /* still hide header/copyright in quiz */
+  body.in-quiz .app-header,
+  body.in-quiz .copyright {
+    display: none !important;
+  }
+}
