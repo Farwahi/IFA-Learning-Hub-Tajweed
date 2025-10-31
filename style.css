@@ -876,3 +876,84 @@ body.lang-ur .answer-btn .text {
 @media (max-width: 640px){
   body.in-quiz .app-header{ display: none !important; }
 }
+/* ===================== MOBILE QUIZ CLEANUP ===================== */
+@media (max-width: 640px) {
+
+  /* when we are IN the quiz on phone → hide big header + quote */
+  body.in-quiz .app-header,
+  body.in-quiz .quote-box {
+    display: none !important;
+  }
+
+  /* timer: make it small and tuck it in the corner */
+  .timer-container {
+    position: fixed !important;
+    top: 60px !important;         /* below lang buttons */
+    right: 10px !important;
+    width: 140px;
+    padding: 10px 12px;
+    gap: 4px;
+  }
+
+  .timer-container h2#timer {
+    font-size: 1.8rem;
+  }
+
+  .back-btn {
+    align-self: stretch;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 4px 6px;
+  }
+
+  .q-counter {
+    font-size: 0.75rem;
+  }
+
+  /* home/about pages (not in quiz) → header is normal (not fixed) */
+  body:not(.in-quiz) .app-header {
+    position: static !important;
+    margin: 8px 8px 0 8px;
+    width: auto;
+  }
+
+  /* footer scrolls on mobile */
+  .copyright {
+    position: static !important;
+    transform: none !important;
+    margin: 16px auto 24px;
+  }
+
+  /* question box a bit lower so nothing touches top */
+  .question-area {
+    margin-top: 75px;
+  }
+}
+
+/* =========== MOBILE LANDSCAPE (iPhone sideways) =========== */
+@media (max-width: 900px) and (orientation: landscape) {
+
+  body.in-quiz .app-header,
+  body.in-quiz .quote-box {
+    display: none !important;
+  }
+
+  .timer-container {
+    top: 8px !important;
+    right: 8px !important;
+    width: 120px;
+    padding: 6px 10px;
+  }
+
+  .timer-container h2#timer {
+    font-size: 1.4rem;
+  }
+
+  .q-counter {
+    font-size: 0.7rem;
+  }
+
+  .question-area {
+    margin-top: 60px;
+  }
+}
